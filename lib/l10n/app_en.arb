@@ -1,0 +1,13 @@
+{
+    "taskTitle" : "Task Title",
+    "taskDescription" : "Task Description",
+    "tasks" : "Tasks",
+    "settings" : "Settings",
+    "addNewTask" : "Add New Task",
+    "title" : "Title",
+    "description" : "Description",
+    "addTask" : "Add Task",
+    "selectTime" : "Select Time : ",
+    "language" : "Language",
+    "theme" : "Theme"
+}
