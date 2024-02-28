@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:session_10_flutter6_todo/add_task_bottom_sheet.dart';
-import 'package:session_10_flutter6_todo/settings_tab.dart';
+import 'package:provider/provider.dart';
+import 'package:session_10_flutter6_todo/bottom_sheets/add_task_bottom_sheet.dart';
+import 'package:session_10_flutter6_todo/providers/my_provider.dart';
+import 'package:session_10_flutter6_todo/tabs/settings_tab.dart';
 import 'package:session_10_flutter6_todo/tabs/tasks_tab.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "HomeScreen";
@@ -16,14 +19,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     return Scaffold(
       extendBody: true,
-      backgroundColor: Color(0xFFDFECDB),
+      backgroundColor: provider.theme,
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        centerTitle: true,
         title: Text(
-          "ToDo",
-          style: TextStyle(fontSize: 30, color: Colors.white , fontWeight: FontWeight.w500),
+          "To Do",
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -32,18 +35,15 @@ class _HomeScreenState extends State<HomeScreen> {
         onPressed: () {
           showModalBottomSheet(
             isScrollControlled: true,
-            context: context, builder: (context) {
-            return Container(
-              padding: EdgeInsets.only(
-                bottom: MediaQuery.of(context).viewInsets.bottom
-              ),
-              child: AddTaskBottomSheet());
-          },);
+            context: context,
+            builder: (context) {
+              return Container(
+                  padding: EdgeInsets.only(
+                      bottom: MediaQuery.of(context).viewInsets.bottom),
+                  child: AddTaskBottomSheet());
+            },
+          );
         },
-        backgroundColor: Colors.blue,
-        shape: RoundedRectangleBorder(
-            side: BorderSide(color: Colors.white, width: 4),
-            borderRadius: BorderRadius.circular(30)),
         child: Icon(
           Icons.add,
           color: Colors.white,
@@ -60,16 +60,13 @@ class _HomeScreenState extends State<HomeScreen> {
             index = value;
             setState(() {});
           },
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          selectedItemColor: Colors.blue,
-          unselectedItemColor: Colors.grey,
-          showUnselectedLabels: false,
-          showSelectedLabels: true,
           items: [
-            BottomNavigationBarItem(icon: Icon(Icons.task), label: "Tasks"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.settings), label: "Settings")
+                icon: Icon(Icons.task),
+                label: AppLocalizations.of(context)!.tasks),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.settings),
+                label: AppLocalizations.of(context)!.settings)
           ],
         ),
       ),

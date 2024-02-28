@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TaskItem extends StatelessWidget {
   const TaskItem({super.key});
@@ -36,7 +37,6 @@ class TaskItem extends StatelessWidget {
           ],
         ),
         child: Container(
-          
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(18),
@@ -58,16 +58,22 @@ class TaskItem extends StatelessWidget {
                 Expanded(
                   child: ListTile(
                     title: Text(
-                      "Task Title",
-                      style: TextStyle(fontSize: 20),
+                      AppLocalizations.of(context)!.taskTitle,
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
                     ),
-                    subtitle: Text("Task Description"),
+                    subtitle: Text(
+                      AppLocalizations.of(context)!.taskDescription,
+                      style:
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+                    ),
                     trailing: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         color: Colors.blue,
                       ),
-                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                       child: Icon(
                         Icons.done,
                         color: Colors.white,

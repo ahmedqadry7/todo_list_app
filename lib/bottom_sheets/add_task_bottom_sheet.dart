@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AddTaskBottomSheet extends StatefulWidget {
   const AddTaskBottomSheet({super.key});
@@ -22,8 +23,9 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            SizedBox(height: 16),
             Text(
-              "Add new Task",
+              AppLocalizations.of(context)!.addNewTask,
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
             ),
             SizedBox(height: 16),
@@ -35,7 +37,10 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                 return null;
               },
               decoration: InputDecoration(
-                label: Text("Title"),
+                label: Text(
+                  AppLocalizations.of(context)!.title,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
                 errorBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                   borderSide: BorderSide(color: Colors.red),
@@ -58,7 +63,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                 return null;
               },
               decoration: InputDecoration(
-                  label: Text("Description"),
+                  label: Text(AppLocalizations.of(context)!.description),
                   errorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                     borderSide: BorderSide(color: Colors.red),
@@ -74,7 +79,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
             SizedBox(height: 16),
             Container(
                 alignment: Alignment.centerLeft,
-                child: Text("Select Time :",
+                child: Text(AppLocalizations.of(context)!.selectTime,
                     style:
                         TextStyle(fontWeight: FontWeight.w300, fontSize: 20))),
             SizedBox(height: 16),
@@ -89,21 +94,23 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
             Container(
               width: double.infinity,
               child: ElevatedButton(
-                  onPressed: () {
-                    if (formKey.currentState!.validate()) {
-                      print("x");
-                    }
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,
+                onPressed: () {
+                  if (formKey.currentState!.validate()) {
+                    
+                  }
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                ),
+                child: Text(
+                  AppLocalizations.of(context)!.addTask,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 20,
+                    color: Colors.white,
                   ),
-                  child: Text(
-                    "Add Task",
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 20,
-                        color: Colors.white),
-                  )),
+                ),
+              ),
             ),
           ],
         ),
