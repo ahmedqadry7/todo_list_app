@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:session_10_flutter6_todo/bottom_sheets/add_task_bottom_sheet.dart';
+import 'package:session_10_flutter6_todo/my_theme_data.dart';
 import 'package:session_10_flutter6_todo/providers/my_provider.dart';
 import 'package:session_10_flutter6_todo/tabs/settings_tab.dart';
 import 'package:session_10_flutter6_todo/tabs/tasks_tab.dart';
@@ -51,6 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
+        color: provider.theme == MyTheme.lightColor ? Colors.white : Color(0xFF141922),
         notchMargin: 7,
         shape: CircularNotchedRectangle(),
         padding: EdgeInsets.zero,

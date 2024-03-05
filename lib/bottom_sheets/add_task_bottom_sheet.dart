@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+import 'package:session_10_flutter6_todo/providers/my_provider.dart';
 
 class AddTaskBottomSheet extends StatefulWidget {
   const AddTaskBottomSheet({super.key});
@@ -16,6 +18,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Form(
@@ -63,25 +66,30 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                 return null;
               },
               decoration: InputDecoration(
-                  label: Text(AppLocalizations.of(context)!.description),
-                  errorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: Colors.red),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: Colors.blue),
-                  )),
+                label: Text(AppLocalizations.of(context)!.description),
+                errorBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide(color: Colors.red),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide(color: Colors.blue),
+                ),
+              ),
             ),
             SizedBox(height: 16),
             Container(
-                alignment: Alignment.centerLeft,
-                child: Text(AppLocalizations.of(context)!.selectTime,
-                    style:
-                        TextStyle(fontWeight: FontWeight.w300, fontSize: 20))),
+              alignment: provider.languageCode == "en"
+                  ? Alignment.centerLeft
+                  : Alignment.centerRight,
+              child: Text(
+                AppLocalizations.of(context)!.selectTime,
+                style: TextStyle(fontWeight: FontWeight.w300, fontSize: 20),
+              ),
+            ),
             SizedBox(height: 16),
             InkWell(
               onTap: () {
@@ -95,9 +103,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  if (formKey.currentState!.validate()) {
-                    
-                  }
+                  if (formKey.currentState!.validate()) {}
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,

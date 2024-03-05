@@ -7,7 +7,7 @@
     "title" : "العنوان",
     "description" : "الوصف",
     "addTask" : "أضف المهمة",
-    "selectTime" : ": اختر الوقت",
+    "selectTime" : "اختر الوقت :",
     "language" : "اللغة",
     "theme" : "الثمة"
 }
