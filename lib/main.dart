@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
           image: AssetImage("assets/images/splash.png"),
           alignment: Alignment.center,
         ),
-        duration: Duration(seconds: 7),
+        duration: Duration(seconds: 1),
         onInit: () {
           debugPrint("On Init");
         },

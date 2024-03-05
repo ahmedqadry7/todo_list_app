@@ -32,7 +32,7 @@ class SettingsTab extends StatelessWidget {
                 isScrollControlled: true,
                 builder: (context) {
                   return Container(
-                    height: MediaQuery.of(context).size.height * 0.70,
+                    height: MediaQuery.of(context).size.height * 0.60,
                     child: LanguageBottomSheet(),
                   );
                 },
@@ -53,7 +53,7 @@ class SettingsTab extends StatelessWidget {
                     color: provider.theme == MyTheme.lightColor ? Colors.black : Colors.white),
                   ),
                   Spacer(),
-                  Icon(Icons.arrow_drop_down , size: 30,)
+                  Icon(Icons.arrow_drop_down , size: 30,color: provider.theme == MyTheme.lightColor ? Colors.black : Colors.white,)
                 ],
               ),
             ),
@@ -75,7 +75,7 @@ class SettingsTab extends StatelessWidget {
                 isScrollControlled: true,
                 builder: (context) {
                   return Container(
-                    height: MediaQuery.of(context).size.height * 0.70,
+                    height: MediaQuery.of(context).size.height * 0.60,
                     child: ThemeBottomSheet(),
                   );
                 },
@@ -96,7 +96,7 @@ class SettingsTab extends StatelessWidget {
                     color: provider.theme == MyTheme.lightColor ? Colors.black : Colors.white),
                   ),
                   Spacer(),
-                  Icon(Icons.arrow_drop_down,size: 30,)
+                  Icon(Icons.arrow_drop_down,size: 30,color: provider.theme == MyTheme.lightColor ? Colors.black : Colors.white,)
                 ],
               ),
             ),
